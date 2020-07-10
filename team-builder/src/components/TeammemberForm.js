@@ -18,6 +18,7 @@ const TeammemberForm = (props) => {
     <form
       onSubmit={(event) => {
         event.preventDefault();
+        props.addTeammember(teammember);
         setTeammember({ id: Date.now(), name: "", email: "", title: "" });
       }}
     >
@@ -37,14 +38,16 @@ const TeammemberForm = (props) => {
         name="email"
         placeholder="Please Enter Your Email"
         value={teammember.email}
+        onChange={changeHandler}
       />
-      <label htmlFor="title">Title: </label>
-      <input
+      <label htmlFor="title">Complaint: </label>
+      <textarea
         id="title"
         type="text"
         name="title"
-        placeholder="Please Enter Your Title"
+        placeholder="Please Enter Your Complaint"
         value={teammember.title}
+        onChange={changeHandler}
       />
       <button type="submit">Click to Submit!</button>
     </form>
